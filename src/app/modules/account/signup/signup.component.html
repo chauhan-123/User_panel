@@ -1,0 +1,66 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="container">
+  <div class="card bg-light">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Create Account</h4>
+        <p class="text-center">Get started with your free account</p>
+        <form [formGroup]="signForm" (ngSubmit)="signForm.valid&&signup()">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+          </div>
+          <input matInput required placeholder="Full name" formControlName="firstName">
+          <mat-error *ngIf="signForm['controls']['firstName']['errors']">
+              {{getValidationError(signForm['controls']['firstName'],'firstName')}} please enter a name
+          </mat-error>
+          <!-- <input name="" class="form-control" placeholder="Full name" type="text"> -->
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+          </div>
+          <input matInput required placeholder="Email Address" formControlName="email">
+          <mat-error *ngIf="signForm['controls']['email']['errors']">
+              {{getValidationError(signForm['controls']['email'],'email')}} please enter a email</mat-error>
+          <!-- <input name="" class="form-control" placeholder="Email address" type="email"> -->
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+          </div>
+          <select class="custom-select" style="max-width: 120px;">
+            <option selected="">+91</option>
+          </select>
+          <input matInput required placeholder="Phone number" phone="phone" formControlName="phone">
+                <mat-error *ngIf="signForm['controls']['phone']['errors']">
+                    {{getValidationError(signForm['controls']['phone'],'phone')}} please enter a mobile number
+                </mat-error>
+          <!-- <input name="" class="form-control" placeholder="Phone number" type="text"> -->
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input matInput required placeholder="Password" formControlName="password" [type]="hide ? 'password' :
+          'text'">
+                 <mat-error *ngIf="signForm['controls']['password']['errors']">
+                     {{getValidationError(signForm['controls']['password'],'password')}} please enter a password
+                 </mat-error>
+          <!-- <input class="form-control" placeholder="Create password" type="password"> -->
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+        </div>
+        <p class="text-center">Have an account? <a href="">Log In</a> </p>
+      </form>
+    </article>
+  </div>
+
+</div>
+<!--container end.//-->
