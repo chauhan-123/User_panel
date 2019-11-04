@@ -1,0 +1,50 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ <div class="form-gap"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="text-center">
+                  <h3><i class="fa fa-lock fa-4x"></i></h3>
+                  <h2 class="text-center">Reset Password?</h2>
+                  <p>You can reset your password here.</p>
+                  <div class="panel-body">
+
+                      <form [formGroup]="resetForm" (ngSubmit)="resetForm.valid&&resetPassword()">
+                          <mat-form-field>
+                            <input matInput required placeholder="New Password" [type]="passwordHide ? 'password'  :  'text'"
+                              formControlName="password">
+                            <mat-icon matPrefix>vpn_key</mat-icon>
+                            <mat-icon matSuffix (click)="passwordHide= !passwordHide">{{passwordHide ? 'visibility_off' : 'visibility'}}
+                            </mat-icon>
+                            <mat-error *ngIf="resetForm['controls']['password']['errors']">
+                              {{getValidationError(resetForm['controls']['password'],'password')}}</mat-error>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input matInput required placeholder="Confirm Password" [type]="confirmPasswordHide ? 'password' :'text'"
+                              formControlName="confirmPassword">
+                            <mat-icon matPrefix>vpn_key</mat-icon>
+                            <mat-icon matSuffix (click)="confirmPasswordHide= !confirmPasswordHide">{{confirmPasswordHide ?
+                                'visibility_off' : 'visibility'}}</mat-icon>
+                            <mat-error *ngIf="resetForm['controls']['confirmPassword']['errors']">
+                              {{getValidationError(resetForm['controls']['confirmPassword'],'confirmPassword')}}</mat-error>
+                          </mat-form-field>
+                          <mat-card-actions>
+                            <button mat-raised-button type="submit" color="primary">Reset</button>
+                            <!-- <button mat-button type="button" class="forgor_password" [routerLink]="[ '/account/login']">Back to login</button> -->
+                          </mat-card-actions>
+                        </form>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+	</div>
+</div>

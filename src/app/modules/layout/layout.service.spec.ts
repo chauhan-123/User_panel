@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UtilityService } from './utility.service';
+import { LayoutService } from './layout.service';
 
-describe('UtilityService', () => {
+describe('LayoutService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: UtilityService = TestBed.get(UtilityService);
+    const service: LayoutService = TestBed.get(LayoutService);
     expect(service).toBeTruthy();
   });
 });

@@ -1,0 +1,37 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ <div class="form-gap"></div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+            <div class="panel panel-default">
+              <div class="panel-body">
+                <div class="text-center">
+                  <h3><i class="fa fa-lock fa-4x"></i></h3>
+                  <h2 class="text-center">Verify Token?</h2>
+                  <p>You can verify your token here.</p>
+
+                      <form [formGroup]="verifyTokenForm" (ngSubmit)="verifyTokenForm.valid&&sendToken()">
+                          <mat-form-field>
+                              <input matInput required placeholder="Token" otp="otp" formControlName="otp">
+                              <mat-error *ngIf="verifyTokenForm['controls']['otp']['errors']">
+                                  {{getValidationError(verifyTokenForm['controls']['otp'],'otp')}} please enter a valid token
+                              </mat-error>
+                              <!-- <mat-icon matPrefix>person</mat-icon> -->
+                  
+                          </mat-form-field>
+                          <mat-card-actions class="text-center">
+                              <button mat-raised-button type="submit" color="primary">submit token</button>
+                          </mat-card-actions>
+                          </form>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+	</div>
+</div>

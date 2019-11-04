@@ -10,7 +10,8 @@ import {
   MAT_DIALOG_DATA
 } from '@angular/material';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
- 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
  const signupRoute: Routes = [
    {path:'', component: SignupComponent}
  ]
@@ -24,11 +25,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatIconModule,
     MatInputModule,
     ReactiveFormsModule,
-    FormsModule
-
-  
-  
-    
+    FormsModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SignupModule { }

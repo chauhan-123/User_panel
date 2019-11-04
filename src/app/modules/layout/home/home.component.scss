@@ -1,0 +1,36 @@
+.full-container {
+    width: 100%;
+    display: flex;
+}
+
+.sidebar {
+    min-width: 250px;
+    margin-right: 2%;
+    background: red;
+    height: auto;
+    padding: 20px;
+    color: white;
+}
+.home-card {
+    width: 70%;
+    height: auto;
+    float: right;
+    padding: 20px;
+    background: yellow;
+    .card-text{
+        width: 200px;
+        margin: 0 auto;
+        height: auto;        
+        .card-img{
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }   
+    }     
+}

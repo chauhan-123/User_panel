@@ -1,0 +1,38 @@
+<!-- <mat-toolbar class="header" color="primary"  >
+  <mat-toolbar-row>
+      <div class ="humburger" appCollespe [ngClass]="{'open': humburger }" (click)="sidebarCollaped()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <span class="example-spacer"></span>
+    <button class="example-icon" mat-button matTooltip="Settings" [matMenuTriggerFor]="menu2">
+      <mat-icon>settings</mat-icon>
+    </button>
+
+    <div class="btn_group">
+
+      <mat-menu #menu2="matMenu">
+        <button mat-menu-item class="user_profile" [routerLink]="['./admin']" routerLinkActive="router-link-active">
+          <div class="img"> <img [src]="profileDetail?.image ? profileDetail?.image : 'assets/images/avatar.png'"
+              alt="Admin"> </div>
+          <span> {{profileDetail?.firstName}} </span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item [routerLink]="['./admin/edit-profile']">
+          <mat-icon>person</mat-icon> Edit Profile
+        </button>
+        <button mat-menu-item [routerLink]="['./admin/changePassword']">
+          <mat-icon>lock</mat-icon> Change Password
+        </button>
+      </mat-menu>
+
+    </div>
+
+    <button class="example-icon" mat-button (click)="logout()" matTooltip="Logout">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+
+
+  </mat-toolbar-row>
+  </mat-toolbar> -->
