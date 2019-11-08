@@ -42,9 +42,9 @@ export class VerifyComponent implements OnInit {
             isHideCancel:true,
             successIcon:true
           }
-          // this._utilityService.openDialog(data).subscribe(success => {
-          //   this._router.navigate(['/account/login']);
-          // });
+          this._utilityService.openDialog(data).subscribe(success => {
+            this._router.navigate(['/user/login']);
+          });
         }
       }, error =>{
 

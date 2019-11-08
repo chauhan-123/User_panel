@@ -1,70 +1,40 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<mat-card class="accout_wrapper login-card" style=" min-width: 558px;
 
-</head>
-<body>
-
-
-<div class="container">
-  
-    <div class="row">
-      <h2 style="text-align:center">Login with Social Media or Manually</h2>
-      <div class="vl">
-        <span class="vl-innertext">or</span>
-      </div>
-
-      <div class="col">
-        <a href="#" class="fb btn">
-          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-         </a>
-        <a href="#" class="twitter btn">
-          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-        </a>
-        <a href="#" class="google btn"><i class="fa fa-google fa-fw">
-          </i> Login with Google+
-        </a>
-      </div>
-
-      <div class="col">
-        <div class="hide-md-lg">
-          <p>Or sign in manually:</p>
-        </div>
-        <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid&&login()">
-            <input matInput required placeholder="Email Address" name="username" formControlName="email">
-            <mat-error *ngIf="loginForm['controls']['email']['errors']">
-              {{getValidationError(loginForm['controls']['email'],'email')}} please enter a email</mat-error>
-      
-            <input matInput required placeholder="Password" formControlName="password" [type]="hide ? 'password' :
-            'text'">
-          <mat-error *ngIf="loginForm['controls']['password']['errors']">
-            {{getValidationError(loginForm['controls']['password'],'password')}} please enter a password</mat-error>
-    
-
-        <!-- <input type="text" name="username" placeholder="Username" required> -->
-        <!-- <input type="password" name="password" placeholder="Password" required> -->
-        <input type="submit" value="Login">
-     </form>
-      </div>
-      
-    </div>
-  
-</div>
-
-<div class="bottom-container">
-  <div class="row">
-    <div class="col">
-     
-      <a href="#" style="color:white" class="btn"  [routerLink]="[ '/user/signup' ]">Sign up</a>
-    </div>
-    <div class="col">
-      <a href="#" style="color:white" class="btn"  [routerLink]="[ '/user/forgot']" >Forgot password?</a>
-    </div>
+ min-height:346px;
+ width: auto;">
+    <div class="logo_blk"><img src="assets/images/book.jpg" alt=""></div>
+  <div class="header-card">
+    <h2>Login</h2>
+    <p>Please Enter User Details</p>
   </div>
-</div>
 
-</body>
-</html>
-
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid&&login()">
+      <mat-form-field>
+        <input matInput required placeholder="Email Address" name="username" formControlName="email">
+        <mat-error *ngIf="loginForm['controls']['email']['errors']">
+          {{getValidationError(loginForm['controls']['email'],'email')}} please enter a email</mat-error>
+        <mat-icon matPrefix>mail</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput required placeholder="Password" formControlName="password" [type]="hide ? 'password' :
+          'text'">
+        <mat-error *ngIf="loginForm['controls']['password']['errors']">
+          {{getValidationError(loginForm['controls']['password'],'password')}} please enter a password</mat-error>
+        <mat-icon matPrefix>vpn_key</mat-icon>
+        <mat-icon matSuffix (click)="hide= !hide">{{hide ? 'visibility_off' :
+          'visibility'}}</mat-icon>
+      </mat-form-field>
+      <mat-card-actions class="text-center">
+        <button mat-raised-button type="submit" color="primary" >Login</button>
+        <button mat-button type="button" class="forgor_password" >Forgot
+          Password</button>
+      </mat-card-actions>
+      <div>
+        <span class="text-left">Don't have an account?</span>
+        <button mat-button type="button" class="forgor_password" (click)="signUp()">SIGN UP
+          NOW</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

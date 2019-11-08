@@ -20,7 +20,8 @@ const loginRoute : Routes = [
   MatInputModule,
   ReactiveFormsModule,
   SharedModule,
-  MatSlideToggleModule
-  ]
+  MatSlideToggleModule,
+]
+
 })
 export class LoginModule { }

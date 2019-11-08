@@ -5,9 +5,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo : 'user' , pathMatch:'full'},
-  {path :'user', loadChildren :'./modules/account/account.module#AccountModule'},
-   { path: 'Users', loadChildren: './modules/layout/layout.module#LayoutModule', canLoad: [AccountGuard] },
+  {path:'', redirectTo : 'Users' , pathMatch:'full'},
+  // {path :'user', loadChildren :'./modules/account/account.module#AccountModule'},
+   { path: 'Users', loadChildren: './modules/layout/layout.module#LayoutModule' },
   { path: '**', component: NotfoundComponent },
   { path: 'link-expired', component: NotfoundComponent }
 ];

@@ -1,16 +1,35 @@
 
+
+
+
 <div class="full-container">
-  <div class="sidebar">    
+  <div class="sidebar">
     <ul>
-      <li>Home</li>
+      <li>Home </li>
     </ul>
   </div>
   <div class="home-card">
-      <div class="card-text">
-         <div class="card-img">
-             <img src="https://dummyimage.com/200x200/000/fff" alt="">
-         </div>
-         <h4>Image Size = Width * Height</h4>
+    <div class="card-text" *ngFor ="let books of response">
+      <div class="card-img">
+        <img [src]="books?.images ? books?.images : 'assets/images/avatar.png'"alt="" [routerLink]="['/Users/home/books_details', books._id]">
       </div>
-     </div>
+      <span>Author :{{books.author}}</span><br>
+      <span>Code:{{books.code}}</span><br>
+      <span>Name{{books.name}}</span><br>
+      <span>Price{{books.price}}</span><br>
+      <span>Description{{books.description}}</span>
+
+
+    </div>
+     <div *ngIf="response?.data?.length==0">
+        <h3 style="text-align: center;padding: 10px">No Record Found</h3>
+      </div> 
+      <!--  pagination  -->
+      <mat-paginator [length]="total" [pageIndex]="page-1" [pageSize]="pageSize"
+        [pageSizeOptions]="[ 5,10, 25,50, 100]" (page)="changePage($event)">
+      </mat-paginator> 
+  </div>
+
+
+
 </div>

@@ -21,13 +21,8 @@ export class AccountService {
  createSignUpForm() {
   return this._formBuilder.group(
     {
-      firstName: this._utilityService.getNameFormControl(),
-      email: this._utilityService.getEmailFormControl(),
       phone: this._utilityService.getPhoneFormControl(),
-      password: this._utilityService.getPasswordFormControl(),
     },
-    {
-    }
   );
 }
 
@@ -76,6 +71,7 @@ createResetForm() {
 
 signup(data) {
   data = this._utilityService.trim(data);
+  data.role = 'user';
   return this.http.post(`${this.baseUrl}registration`, data); 
 }
 
@@ -84,6 +80,7 @@ signup(data) {
    */
   login(data) {
     data = this._utilityService.trim(data);
+    data.role = 'user';
     this.http.post(`${this.baseUrl}login`, data).subscribe(response => {
       if (response['statusCode'] === 200) {
         localStorage.setItem('login', response['result']['token']);
